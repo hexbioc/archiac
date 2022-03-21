@@ -25,6 +25,7 @@ if ! is_online; then
     # Connect to WiFi
     read -p    "Enter an SSID: " wifi_ssid
     read -s -p "Enter the password for '$wifi_ssid': " wifi_passwd
+    printf "\n"
     nmcli device wifi connect "$wifi_ssid" password "$wifi_passwsd"
 
     # Check connection
@@ -48,7 +49,7 @@ validate_credentials
 for script_name in $(cat $SCRIPTS_DIR/enabled); do
     script_path="$SCRIPTS_DIR/$script_name.sh"
     
-    if [[ -f "$script_path"]]; then
+    if [[ -f "$script_path" ]]; then
         printf "\n${BOLD}Executing the '$script_name' script...${REG}\n\n"
         bash "$script_path"
     else
@@ -68,9 +69,10 @@ printf "\n${BOLD}All post boot steps completed!${REG}\n."
 printf "Will reboot in 10 seconds to activate all changes.\n"
 sleep 2  # For comprehension
 
-if ! read -n1 -t10 -s -p "${BOLD}Press any key to skip reboot.${REG}\n"; then
+if ! read -n1 -t10 -s -p "${BOLD}Press any key to skip reboot.${REG}"; then
+    printf "\n"
     reboot
 else
-    printf "The reboot was skipped. Manually reboot to ensure that the setup"
+    printf "\nThe reboot was skipped. Manually reboot to ensure that the setup"
     printf " was successful.\n"
 fi

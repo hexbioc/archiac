@@ -65,6 +65,9 @@ timedatectl set-ntp true
 
 ## BOOTSTRAP ###################################################################
 
+# Update repositories
+pacman -Sy
+
 # Setup Arch mirror list
 pacman --noconfirm -S reflector
 reflector --latest 20 \
@@ -72,8 +75,10 @@ reflector --latest 20 \
     --protocol https \
     --save /etc/pacman.d/mirrorlist
 
-# pacstrap with git for the next steps
-pacstrap /mnt base linux linux-firmware git
+# pacstrap with bare minimum tooling
+pacstrap /mnt base linux linux-firmware \
+    git vim nano \
+    man-db man-pages texinfo
 
 # fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -89,8 +94,10 @@ printf "could break the installation and will need to be manually recovered.\n"
 printf "\n"
 read -p    "Enter a name for the system          : " sysname
 read -s -p "Enter a password for root            : " root_passwd
+printf "\n"
 read -p    "Enter a username for the primary user: " primary_user
 read -s -p "Enter a password for $primary_user   : " primary_passwd
+printf "\n"
 
 # chroot, clone this setup and prepare for the first boot
 arch-chroot /mnt bash <<EOF
@@ -119,16 +126,17 @@ sleep 2  # To allow comprehension
 printf "Before proceeding with the final steps, the ${BOLD}script will wait for"
 printf " 10 seconds to allow aborting${REG} at this point.\n"
 printf "* * *\n"
-if read -n1 -t10 -s -p "${BOLD}Press any key to abort.${REG}\n"; then
-    printf "As the script has been aborted, partitions will have to be manually"
-    printf " unmounted. Once done, unplug the USB device and reboot.\n\n"
-    exit 1
+if read -n1 -t10 -s -p "${BOLD}Press any key to abort.${REG}"; then
+    printf "\nAs the script has been aborted, partitions will have to be"
+    printf " manually unmounted. Once done, unplug the USB device and reboot.\n"
+    exit 0
 fi
 
+printf "\n* * *\n"
 printf "As no input was received, unmounting partitions.\n"
 umount -R /mnt
 
 printf "System will reboot shortly. ${BOLD}Unplug the USB device${REG} to avoid"
 printf " booting into the live environment again.\n"
-sleep 4
+sleep 2
 reboot

@@ -70,10 +70,9 @@ keys = [
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     # rofi bindings
-    Key([mod], "m", lazy.spawn("rofi -show run")),
-    Key([mod, 'shift'], "m", lazy.spawn("rofi -show")),
+    Key([mod], "r", lazy.spawn("rofi -show run"), desc="Spawn a rofi prompt"),
+    Key([mod, 'shift'], "r", lazy.spawn("rofi -show")),
     # audio
     Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer --decrease 5")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --increase 5")),

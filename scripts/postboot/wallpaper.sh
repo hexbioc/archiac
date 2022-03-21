@@ -4,4 +4,8 @@ source "$(dirname $0)/common.sh"
 
 sudo pacman --noconfirm -S feh
 
-feh --bg-fill "$REPO_DIR/assets/default-wallpaper.jpg"
+cat <<EOF > ~/.fehbg
+#!/bin/sh
+feh --no-fehbg --bg-fill '$REPO_DIR/assets/default-wallpaper.jpg'
+EOF
+chmod 754 ~/.fehbg

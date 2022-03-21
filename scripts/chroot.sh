@@ -70,11 +70,14 @@ yes "$root_passwd" | passwd
 # Create user
 useradd -m $primary_user
 yes "$primary_passwd" | passwd $primary_user
-usermod -aG sudo,video,audio,storage $primary_user
+usermod -aG wheel,video,audio,storage $primary_user
 
 # Setup sudo
 pacman --noconfirm -S sudo
-sed -ie 's/# %sudo/%sudo/'  # Allows root access to sudo users
+cat <<EOF > /etc/sudoers.d/sudowheel
+# Allow sudo access to all users of the wheel group
+%wheel ALL=(ALL) ALL
+EOF
 
 
 ## PREPARE FIRST BOOT ##########################################################
