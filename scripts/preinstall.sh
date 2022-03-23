@@ -51,7 +51,7 @@ if ! is_mountpoint /mnt/boot; then
 fi
 
 # Check internet connectivity
-if ! ping -c1 archlinux.org > /dev/null 2>&1; then
+if ! ping -4 -c1 archlinux.org > /dev/null 2>&1; then
     printf "Internet connection is essential, but seems to be unavailable."
     printf " Connect and try again.\n"
     exit 1

@@ -37,6 +37,6 @@ function validate_credentials() {
 export -f validate_credentials
 
 function is_online() {
-    ping -c1 archlinux.org > /dev/null 2>&1
+    ping -4 -c1 archlinux.org > /dev/null 2>&1
 }
 export -f is_online
