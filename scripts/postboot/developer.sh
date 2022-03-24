@@ -6,6 +6,7 @@ sudo pacman --noconfirm -S \
     base-devel \
     jq \
     docker \
+    cronie \
     firefox-developer-edition
 
 # Setup docker
