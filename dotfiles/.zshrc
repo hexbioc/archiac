@@ -114,3 +114,6 @@ fi
 
 # Aliases
 alias archconfig="codium ~/archiac"
+
+alias cbcopy='xsel --clipboard --input'
+alias cbpaste='xsel --clipboard --output'
