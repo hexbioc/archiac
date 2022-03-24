@@ -87,13 +87,14 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ## CHROOT ######################################################################
 
 # Capture system name, root password, primary user and corresponding password
+printf "\n"
 printf "Following prompts will request for details necessary for setting up the"
 printf " system. Note that the ${BOLD}inputs will not be validated${REG}, so"
 printf " ensure that valid inputs are provided for each prompt. Not doing so"
 printf "could break the installation and will need to be manually recovered.\n"
 printf "\n"
-read -p    "Enter a name for the system          : " sysname
-read -s -p "Enter a password for root            : " root_passwd
+read -p    "Enter a name for the system: " sysname
+read -s -p "Enter a password for root: " root_passwd
 printf "\n"
 read -p    "Enter a username for the primary user: " primary_user
 read -s -p "Enter a password for $primary_user   : " primary_passwd

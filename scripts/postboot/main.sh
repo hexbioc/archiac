@@ -16,17 +16,22 @@ source "$(dirname $0)/common.sh"
 
 ## SANITY CHECKS ###############################################################
 
+# Get sudo access
+printf "${BOLD}\nArchaic - Post Boot Setup\n\n${REG}"
+printf "Enter your password to allow sudo access during installation.\n"
+validate_credentials
+
 if ! is_online; then
     printf "Seems like the system is not connected to the internet.\n"
     printf "Internet is required to proceed. Scanning for available WiFi"
     printf " networks:\n"
-    nmcli device wifi list
+    sudo nmcli device wifi list
 
     # Connect to WiFi
     read -p    "Enter an SSID: " wifi_ssid
     read -s -p "Enter the password for '$wifi_ssid': " wifi_passwd
     printf "\n"
-    nmcli device wifi connect "$wifi_ssid" password "$wifi_passwsd"
+    sudo nmcli device wifi connect "$wifi_ssid" password "$wifi_passwsd"
 
     # Check connection
     sleep 2

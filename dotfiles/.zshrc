@@ -113,4 +113,4 @@ if ! [[ -z "$PS1" ]]; then
 fi
 
 # Aliases
-alias archconfig="code ~/archiac"
+alias archconfig="codium ~/archiac"
