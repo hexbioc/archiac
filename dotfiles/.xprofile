@@ -5,7 +5,7 @@ xset r rate 480 48  # xset r <repeat-delay> <repeat-rate>
 $HOME/archiac/scripts/configure-display.sh
 
 # Launch applications
-picom &
+picom --experimental-backends -b
 nm-applet &
 udiskie -t &        # Auto-mount devices
 ~/.fehbg &          # Restores the most recently set wallpaper

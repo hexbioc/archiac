@@ -5,6 +5,7 @@ source "$(dirname $0)/common.sh"
 sudo pacman --noconfirm -S xorg xorg-xinit picom
 
 ln -s "$REPO_DIR/dotfiles/.xprofile" ~/.xprofile
+ln --force -s "$REPO_DIR/configurations/picom" ~/.config/picom
 
 # Add a udev rule to monitor hotplugs
 username=$USER
