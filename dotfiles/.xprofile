@@ -1,6 +1,10 @@
-# Setup displays
-# TODO: Configure this section
+# Keyboard
+xset r rate 480 48  # xset r <repeat-delay> <repeat-rate>
 
+# Setup displays
+$HOME/archiac/scripts/configure-display.sh
+
+# Launch applications
 picom &
 nm-applet &
 udiskie -t &        # Auto-mount devices
