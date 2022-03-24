@@ -58,8 +58,8 @@ pacman --noconfirm -S grub efibootmgr os-prober \
     amd-ucode intel-ucode  # Install both, while the relevant one will be used
 
 # Setup grub
-grub-install --target=x86_64-efi --efi-directory=/boot
-os-prober
+sed -i 's/#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/' /etc/default/grub
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 
