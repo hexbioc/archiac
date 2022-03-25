@@ -77,6 +77,8 @@ keys = [
     Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer --decrease 5")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --increase 5")),
     Key([], "XF86AudioMute", lazy.spawn("pamixer --toggle-mute")),
+    # Screen capture
+    Key([], "Print", lazy.spawn("flameshot gui")),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -142,8 +144,6 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.QuickExit(),

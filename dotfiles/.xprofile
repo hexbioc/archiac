@@ -11,3 +11,4 @@ udiskie -t &        # Auto-mount devices
 ~/.fehbg &          # Restores the most recently set wallpaper
 volumeicon &        # Volume tray icon
 cbatticon &         # Battery tray icon
+flameshot &         # Screenshot tool
