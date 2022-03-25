@@ -12,6 +12,7 @@ up some of my configuration files.
 This repository contains some automation scripts, dotfiles, configuration
 files, and some hacks.
 
+
 ## Setup
 
 1.  Begin with a bootable drive with the latest Archlinux ISO. Once the ISO
@@ -39,3 +40,14 @@ files, and some hacks.
     be on-screen, followed by display manager greeter prompting for login.
 1.  At this point, login with the user created during the installation, which
     will then continue the setup.
+
+
+## Open Items
+
+Stuff I intend to implement / add / fix, when time permits, in no particular
+order:
+
+-   Add GTK theming
+-   Theme the notification popup
+-   Verify audio hotplug for type-C as well as 3.5mm port
+-   Add display configuration before login in lightdm
