@@ -23,6 +23,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+import os
 
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
@@ -68,11 +69,15 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "t", lazy.window.toggle_floating(),
+        desc="Toggle focused window floating"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     # Applications
     Key([mod], "f", lazy.spawn("firefox-developer-edition"), desc="Launch firefox"),
     Key([mod], "v", lazy.spawn("vscodium"), desc="Launch vscodium"),
+    Key([mod], "a", lazy.spawn(f"vscodium {os.getenv('HOME')}/archiac"),
+        desc="Launch vscodium with archiac configuration"),
     # rofi bindings
     Key([mod], "r", lazy.spawn("rofi -show run"), desc="Spawn a rofi prompt"),
     Key([mod, 'shift'], "r", lazy.spawn("rofi -show")),

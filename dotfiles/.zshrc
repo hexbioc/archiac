@@ -117,3 +117,6 @@ alias archconfig="codium ~/archiac"
 
 alias cbcopy='xsel --clipboard --input'
 alias cbpaste='xsel --clipboard --output'
+
+# Environment variables
+export EDITOR="vim"
