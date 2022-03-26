@@ -49,5 +49,7 @@ order:
 
 -   Add GTK theming
 -   Theme the notification popup
--   Verify audio hotplug for type-C as well as 3.5mm port
--   Add display configuration before login in lightdm
+-   ~~Verify audio hotplug for type-C as well as 3.5mm port~~ **works**
+-   ~~Add display configuration before login in lightdm~~ **done**
+-   Configure Qtile for multi-display setups
+
