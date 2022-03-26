@@ -73,10 +73,11 @@ keys = [
     # rofi bindings
     Key([mod], "r", lazy.spawn("rofi -show run"), desc="Spawn a rofi prompt"),
     Key([mod, 'shift'], "r", lazy.spawn("rofi -show")),
-    # audio
+    # Audio
     Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer --decrease 5")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --increase 5")),
     Key([], "XF86AudioMute", lazy.spawn("pamixer --toggle-mute")),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
     # Screen capture
     Key([], "Print", lazy.spawn("flameshot gui")),
 ]

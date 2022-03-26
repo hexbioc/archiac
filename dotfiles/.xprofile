@@ -5,10 +5,11 @@ xset r rate 480 48  # xset r <repeat-delay> <repeat-rate>
 $HOME/archiac/scripts/configure-display.sh
 
 # Launch applications
-picom --experimental-backends -b
-nm-applet &
-udiskie -t &        # Auto-mount devices
-~/.fehbg &          # Restores the most recently set wallpaper
-volumeicon &        # Volume tray icon
-cbatticon &         # Battery tray icon
-flameshot &         # Screenshot tool
+playerctld daemon                   # React to XF86AudioPlay    
+picom --experimental-backends -b    # Compositor
+nm-applet &                         # System tray
+udiskie -t &                        # Auto-mount devices
+~/.fehbg &                          # Restores the most recently set wallpaper
+volumeicon &                        # Volume tray icon
+cbatticon &                         # Battery tray icon
+flameshot &                         # Screenshot tool
