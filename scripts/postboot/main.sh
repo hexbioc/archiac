@@ -17,7 +17,7 @@ source "$(dirname $0)/common.sh"
 ## SANITY CHECKS ###############################################################
 
 # Get sudo access
-printf "${BOLD}\nArchaic - Post Boot Setup\n\n${REG}"
+printf "${BOLD}\nArchiac - Post Boot Setup\n\n${REG}"
 printf "Enter your password to allow sudo access during installation.\n"
 validate_credentials
 

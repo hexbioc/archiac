@@ -2,6 +2,9 @@
 
 Archlinux Installer and Configuration
 
+*No, it is not 'archaic'. Yes, it is 'archiac', for the sake of the
+abbreviation.*
+
 ![they dont know i use arch meme](assets/arch-meme.png)
 
 I've done a fair amount of Archlinux installations and re-installations
