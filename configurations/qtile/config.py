@@ -70,6 +70,9 @@ keys = [
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    # Applications
+    Key([mod], "f", lazy.spawn("firefox-developer-edition"), desc="Launch firefox"),
+    Key([mod], "v", lazy.spawn("vscodium"), desc="Launch vscodium"),
     # rofi bindings
     Key([mod], "r", lazy.spawn("rofi -show run"), desc="Spawn a rofi prompt"),
     Key([mod, 'shift'], "r", lazy.spawn("rofi -show")),
