@@ -15,6 +15,10 @@ sudo systemctl enable docker.service
 sudo usermod -aG docker $USER
 sudo systemctl start docker
 
+# Setup cron
+sudo systemctl enable cronie.service
+sudo systemctl start cronie
+
 # Setup docker compose v2
 validate_credentials
 sudo mkdir -p /usr/local/lib/docker/cli-plugins
