@@ -77,6 +77,7 @@ plugins=(
     docker
     docker-compose
     aws
+    nvm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -106,6 +107,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+# nvm
+[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/nvm.sh
+source /usr/share/nvm/bash_completion
+source /usr/share/nvm/install-nvm-exec
 
 
 # Neofetch

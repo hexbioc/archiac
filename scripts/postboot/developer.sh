@@ -10,14 +10,18 @@ sudo pacman --noconfirm -S \
     xsel \
     firefox-developer-edition
 
-# Setup docker
-sudo systemctl enable docker.service
-sudo usermod -aG docker $USER
-sudo systemctl start docker
+validate_credentials
+yay --noconfirm -S \
+    nvm
 
 # Setup cron
 sudo systemctl enable cronie.service
 sudo systemctl start cronie
+
+# Setup docker
+sudo systemctl enable docker.service
+sudo usermod -aG docker $USER
+sudo systemctl start docker
 
 # Setup docker compose v2
 validate_credentials
