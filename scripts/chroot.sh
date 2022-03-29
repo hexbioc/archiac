@@ -35,6 +35,7 @@ scripts_dir="$(pwd)"
 ## DATE, TIME AND TIMEZONE #####################################################
 printf "\nSetting up date, time and timezone...\n"
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+timedatectl set-ntp true
 hwclock --systohc
 
 
