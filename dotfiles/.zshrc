@@ -107,16 +107,23 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
 # Neofetch
 if ! [[ -z "$PS1" ]]; then
     neofetch
 fi
 
+
 # Aliases
+alias code="codium"
 alias archconfig="codium ~/archiac"
 
 alias cbcopy='xsel --clipboard --input'
 alias cbpaste='xsel --clipboard --output'
+
+alias boot-windows="sudo efibootmgr -q --bootnext $(efibootmgr |\
+    sed -n -r 's/Boot([0-9]+)\* Windows .*/\1/p') && reboot"
+
 
 # Environment variables
 export EDITOR="vim"
