@@ -8,6 +8,7 @@ from libqtile.utils import guess_terminal
 from custom.screens import screens
 
 mod = "mod4"
+alt = "mod1"
 terminal = guess_terminal()
 
 keys = [
@@ -65,6 +66,11 @@ keys = [
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
     # Screen capture
     Key([], "Print", lazy.spawn("flameshot gui")),
+    # Screen lock
+    Key([mod, alt], "l", lazy.spawn("dm-tool lock"), desc="Locks the screen"),
+    # Laptop brightness
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 ]
 
 groups = [Group(i) for i in "123456"]

@@ -2,7 +2,9 @@
 
 source "$(dirname $0)/common.sh"
 
-sudo pacman --noconfirm -S xorg xorg-xinit picom
+sudo pacman --noconfirm -S xorg xorg-xinit \
+	picom \
+	brightnessctl
 
 ln -s "$REPO_DIR/dotfiles/.xprofile" ~/.xprofile
 ln --force -s "$REPO_DIR/configurations/picom" ~/.config/picom
