@@ -27,3 +27,6 @@ colors:
     magenta: '0xc6e8f1'
     cyan: '0x97b9c0'
     white: '0xffe9d7'
+
+font:
+  size: 8

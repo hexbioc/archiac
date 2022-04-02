@@ -8,6 +8,7 @@ sudo pacman --noconfirm -S \
     docker \
     cronie \
     xsel \
+    zip unzip p7zip \
     firefox-developer-edition
 
 validate_credentials

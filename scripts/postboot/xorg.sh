@@ -18,3 +18,16 @@ ENV{XAUTHORITY}="/home/$username/.Xauthority", \
 RUN+="/home/$username/archiac/scripts/configure-display.sh"
 EOF
 EOS
+
+sudo bash <<EOS
+cat <<EOF > /etc/X11/xorg.conf.d/30-touchpad.conf
+Section "InputClass"
+	Identifier "devname"
+	Driver "libinput"
+	MatchIsTouchpad "on"
+	Option "Tapping" "on"
+	Option "ClickMethod" "clickfinger"
+	Option "NaturalScrolling" "true"
+EndSection
+EOF
+EOS
