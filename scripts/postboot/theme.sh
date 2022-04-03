@@ -25,6 +25,8 @@ EOS
 # Setup theme configuration
 ln --force -s "$REPO_DIR/dotfiles/.gtkrc-2.0" ~/
 ln --force -s "$REPO_DIR/configurations/gtk-3.0" ~/.config/
+sudo bash -c \
+    'echo -e "\n\n# Qt theming\nexport QT_STYLE_OVERRIDE=kvantum" >> /etc/profile'
 
 # Add some bookmarks useful in file choosers
 cat <<EOF > ~/.config/gtk-3.0/bookmarks
