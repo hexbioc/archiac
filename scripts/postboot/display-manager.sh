@@ -2,7 +2,12 @@
 
 source "$(dirname $0)/common.sh"
 
-sudo pacman --noconfirm -S lightdm lightdm-gtk-greeter
+sudo pacman --noconfirm -S \
+    lightdm \
+    lightdm-gtk-greeter \
+    lightdm-webkit2-greeter
+yay -S lightdm-webkit-theme-aether
+
 sudo systemctl enable lightdm
 
 # Configure displays before login
