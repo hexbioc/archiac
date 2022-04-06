@@ -1,15 +1,15 @@
 import subprocess
 
 from libqtile import bar, widget
-from libqtile.config import Screen
 from libqtile.log_utils import logger
+from libqtile.config import Screen
 
 
 def _get_monitor_count():
     xrandr_cmd = "xrandr --listactivemonitors | sed -n -r 's/^Monitors: ([0-9]+)/\1/p'"
     try:
         with subprocess.Popen(xrandr_cmd, stdout=subprocess.PIPE, shell=True) as proc:
-            return int(proc.stdout.read())
+            return ord(proc.stdout.readline().strip())
     except Exception:
         logger.exception("Error while trying to count monitors")
 
